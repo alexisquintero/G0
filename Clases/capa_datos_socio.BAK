@@ -40,12 +40,6 @@ UPDATE socio SET;
 	
 RETURN 
 
-FUNCTION borrar
-PARAMETERS aut_nro_socio
-
-DELETE FROM socio;
-	WHERE nro_socio = aut_nro_socio
-
 ENDDEFINE 
 
 
