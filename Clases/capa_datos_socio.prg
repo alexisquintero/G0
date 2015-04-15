@@ -17,10 +17,20 @@ SELECT MIN(nro_socio), apellido, nombre, email, domicilio, telefono, id_bibliote
 RETURN nombre
 
 FUNCTION siguiente
+PARAMETERS aut_nro_socio
+
+SELECT MIN(nro_socio), apellido, nombre, email, domicilio, telefono, id_biblioteca from socio; 
+	GROUP BY nro_socio, apellido, nombre, email, domicilio, telefono, id_biblioteca;
+	having MIN(nro_socio) > aut_nro_socio
 
 RETURN 
 
 FUNCTION anterior
+PARAMETERS aut_nro_socio
+
+SELECT MAX(nro_socio), apellido, nombre, email, domicilio, telefono, id_biblioteca from socio; 
+	GROUP BY nro_socio, apellido, nombre, email, domicilio, telefono, id_biblioteca;
+	having MAX(nro_socio) < aut_nro_socio
 
 RETURN
 
