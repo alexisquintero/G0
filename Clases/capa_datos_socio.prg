@@ -1,6 +1,3 @@
-obj = CREATEOBJECT("capa_datos_socio")
-
-
 DEFINE CLASS capa_datos_socio as Custom 
 aut_nro_socio = 0
 c_apellido = "asd"
@@ -69,7 +66,7 @@ RETURN this.c_id_biblioteca
 FUNCTION agregar_socio
 
 INSERT INTO socio (apellido, nombre, email, domicilio, telefono, id_biblioteca);
-	VALUES (c_apellido, c_nombre, c_email, c_domicilio, d_telefono, c_id_biblioteca)
+	VALUES (this.c_apellido, this.c_nombre, this.c_email, this.c_domicilio, this.d_telefono, this.c_id_biblioteca)
 	
 RETURN 
 
@@ -94,11 +91,10 @@ this.c_id_biblioteca  = curPri.id_biblioteca
 RETURN 
 
 FUNCTION siguiente
-PARAMETERS aut_nro_socio
 
 SELECT MIN(nro_socio) as siguiente from socio; 
 	GROUP BY nro_socio;
-	having MIN(nro_socio) > aut_nro_socio;
+	having MIN(nro_socio) > this.aut_nro_socio;
 	INTO CURSOR curSig
 
 SELECT * from socio; 
@@ -116,11 +112,10 @@ this.c_id_biblioteca  = curNext.id_biblioteca
 RETURN 
 
 FUNCTION anterior
-PARAMETERS aut_nro_socio
 
 SELECT MAX(nro_socio) as anterior from socio; 
 	GROUP BY nro_socio;
-	having MAX(nro_socio) < aut_nro_socio;
+	having MAX(nro_socio) < this.aut_nro_socio;
 	INTO CURSOR curAnt
 
 SELECT *from socio; 
@@ -160,22 +155,22 @@ RETURN
 FUNCTION modificar
 
 UPDATE socio SET;
-	apellido = NVL(c_apellido, apellido), nombre = NVL(c_nombre, nombre), email = NVL(c_email,email), domicilio = NVL(c_domicilio, domicilio), telefono = NVL(d_telefono,telefono), id_biblioteca = NVL(c_id_biblioteca, id_biblioteca);
-	WHERE nro_socio = aut_nro_socio
+	apellido = NVL(this.c_apellido, apellido), nombre = NVL(this.c_nombre, nombre), email = NVL(this.c_email,email), domicilio = NVL(this.c_domicilio, domicilio), telefono = NVL(this.d_telefono,telefono), id_biblioteca = NVL(this.c_id_biblioteca, id_biblioteca);
+	WHERE nro_socio = this.aut_nro_socio
 	
 RETURN 
 
 FUNCTION borrar
 
 DELETE FROM socio;
-	WHERE nro_socio = aut_nro_socio
+	WHERE nro_socio = this.aut_nro_socio
 
 RETURN 
 	
 FUNCTION buscar
 
 SELECT * FROM socio;
-	WHERE nro_socio = aut_nro_socio;
+	WHERE nro_socio = this.aut_nro_socio;
 	INTO CURSOR curBus
 
 this.aut_nro_socio = curBus.nro_socio
