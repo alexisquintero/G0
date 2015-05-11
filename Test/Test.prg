@@ -40,6 +40,7 @@ obj.c_telefono = "147258369"
 obj.c_id_biblioteca = "1"
 obj.agregar_socio
 
+? "Método primero"
 obj.primero
 ? obj.aut_nro_socio 
 ? obj.c_apellido 
@@ -49,6 +50,7 @@ obj.primero
 ? obj.c_telefono 
 ? obj.c_id_biblioteca
 
+? "Método siguiente"
 obj.siguiente
 ? obj.aut_nro_socio 
 ? obj.c_apellido 
@@ -58,8 +60,10 @@ obj.siguiente
 ? obj.c_telefono 
 ? obj.c_id_biblioteca
 
+? "Método borrar"
 obj.borrar
 
+? "Método último"
 obj.ultimo
 ? obj.aut_nro_socio 
 ? obj.c_apellido 
@@ -69,6 +73,7 @@ obj.ultimo
 ? obj.c_telefono 
 ? obj.c_id_biblioteca
 
+? "Método anterior"
 obj.anterior
 ? obj.aut_nro_socio 
 ? obj.c_apellido 
@@ -78,7 +83,7 @@ obj.anterior
 ? obj.c_telefono 
 ? obj.c_id_biblioteca
 
-
+? "Método modificar"
 obj.c_apellido = "Gimenez"
 obj.c_email = "maria_gimenez@gmail.com"
 obj.c_nombre = NULL
@@ -93,5 +98,6 @@ obj.modificar
 ? obj.c_domicilio 
 ? obj.c_telefono 
 ? obj.c_id_biblioteca
+
 
 
