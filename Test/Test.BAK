@@ -4,7 +4,7 @@ obj.c_apellido = "Rodriguez"
 obj.c_nombre = "Juan"
 obj.c_email = "juan_rodriguez@hotmail.com"
 obj.c_domicilio = "cordoba 300"
-obj.d_telefono = "034178945613"
+obj.c_telefono = "034178945613"
 obj.c_id_biblioteca = "1"
 obj.agregar_socio
 
@@ -12,7 +12,7 @@ obj.c_apellido = "Perez"
 obj.c_nombre = "Federico"
 obj.c_email = "federico_perez@outlook.com"
 obj.c_domicilio = "san juan 1900"
-obj.d_telefono = "034145678123"
+obj.c_telefono = "034145678123"
 obj.c_id_biblioteca = "1"
 obj.agregar_socio
 
@@ -86,5 +86,12 @@ obj.c_domicilio = NULL
 obj.d_telefono = NULL
 obj.c_id_biblioteca = NULL
 obj.modificar
+? obj.aut_nro_socio 
+? obj.c_apellido 
+? obj.c_nombre 
+? obj.c_email 
+? obj.c_domicilio 
+? obj.d_telefono 
+? obj.c_id_biblioteca
 
 

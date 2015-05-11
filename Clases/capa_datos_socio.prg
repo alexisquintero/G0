@@ -4,7 +4,7 @@ c_apellido = "asd"
 c_nombre = "asd"
 c_email = "asd"
 c_domicilio = "asd"
-d_telefono = "asd"
+c_telefono = "123"
 c_id_biblioteca = "asd"
 
 FUNCTION set_nro_socio
@@ -49,11 +49,11 @@ RETURN this.c_domicilio
 
 FUNCTION set_telefono
 PARAMETERS p_telefono
-	this.d_telefono = p_telefono
+	this.c_telefono = p_telefono
 RETURN 
 
 FUNCTION get_telefono
-RETURN this.d_telefono
+RETURN this.c_telefono
 
 FUNCTION set_id_biblioteca
 PARAMETERS p_id_biblioteca
@@ -66,7 +66,7 @@ RETURN this.c_id_biblioteca
 FUNCTION agregar_socio
 
 INSERT INTO socio (apellido, nombre, email, domicilio, telefono, id_biblioteca);
-	VALUES (this.c_apellido, this.c_nombre, this.c_email, this.c_domicilio, this.d_telefono, this.c_id_biblioteca)
+	VALUES (this.c_apellido, this.c_nombre, this.c_email, this.c_domicilio, this.c_telefono, this.c_id_biblioteca)
 	
 RETURN 
 
@@ -85,7 +85,7 @@ this.c_apellido = curPri.apellido
 this.c_nombre = curPri.nombre
 this.c_email = curPri.email
 this.c_domicilio = curPri.domicilio
-this.d_telefono = curPri.telefono
+this.c_telefono = curPri.telefono
 this.c_id_biblioteca  = curPri.id_biblioteca
 	
 RETURN 
@@ -106,7 +106,7 @@ this.c_apellido = curNext.apellido
 this.c_nombre = curNext.nombre
 this.c_email = curNext.email
 this.c_domicilio = curNext.domicilio
-this.d_telefono = curNext.telefono
+this.c_telefono = curNext.telefono
 this.c_id_biblioteca  = curNext.id_biblioteca
 
 RETURN 
@@ -127,7 +127,7 @@ this.c_apellido = curPrev.apellido
 this.c_nombre = curPrev.nombre
 this.c_email = curPrev.email
 this.c_domicilio = curPrev.domicilio
-this.d_telefono = curPrev.telefono
+this.c_telefono = curPrev.telefono
 this.c_id_biblioteca  = curPrev.id_biblioteca
 
 RETURN
@@ -147,7 +147,7 @@ this.c_apellido = curLast.apellido
 this.c_nombre = curLast.nombre
 this.c_email = curLast.email
 this.c_domicilio = curLast.domicilio
-this.d_telefono = curLast.telefono
+this.c_telefono = curLast.telefono
 this.c_id_biblioteca  = curLast.id_biblioteca
 	
 RETURN 
@@ -155,7 +155,7 @@ RETURN
 FUNCTION modificar
 
 UPDATE socio SET;
-	apellido = NVL(this.c_apellido, apellido), nombre = NVL(this.c_nombre, nombre), email = NVL(this.c_email,email), domicilio = NVL(this.c_domicilio, domicilio), telefono = NVL(this.d_telefono,telefono), id_biblioteca = NVL(this.c_id_biblioteca, id_biblioteca);
+	apellido = NVL(this.c_apellido, apellido), nombre = NVL(this.c_nombre, nombre), email = NVL(this.c_email,email), domicilio = NVL(this.c_domicilio, domicilio), telefono = NVL(this.c_telefono,telefono), id_biblioteca = NVL(this.c_id_biblioteca, id_biblioteca);
 	WHERE nro_socio = this.aut_nro_socio
 	
 RETURN 
@@ -178,7 +178,7 @@ this.c_apellido = curBus.apellido
 this.c_nombre = curBus.nombre
 this.c_email = curBus.email
 this.c_domicilio = curBus.domicilio
-this.d_telefono = curBus.telefono
+this.c_telefono = curBus.telefono
 this.c_id_biblioteca  = curBus.id_biblioteca
 	
 RETURN 
