@@ -1,3 +1,15 @@
+**SET DEFAULT TO c:\Fox\G0\
+**SET PATH TO c:\Fox\G0\Clases\
+**SET PATH TO c:\Fox\G0\Data\
+**SET PATH TO c:\Fox\G0\Forms\
+**SET PATH TO c:\Fox\G0\Test\
+SET PATH TO ('c:\Fox\G0\' + 'Clases\' + 'Data\Tables\' + 'Test\')
+CLOSE DATABASES 
+OPEN DATABASE Data\Biblioteca
+SET DELETED ON
+
+CLEAR 
+
 obj = NEWOBJECT("capa_datos_socio", "C:\Fox\G0\Clases\capa_datos_socio.prg")
 
 obj.c_apellido = "Rodriguez"
@@ -99,5 +111,5 @@ obj.modificar
 ? obj.c_telefono 
 ? obj.c_id_biblioteca
 
-
+CLOSE DATABASES 
 
