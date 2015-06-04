@@ -159,6 +159,7 @@ FUNCTION modificar
 UPDATE socio SET;
 	apellido = NVL(this.c_apellido, apellido), nombre = NVL(this.c_nombre, nombre), email = NVL(this.c_email,email), domicilio = NVL(this.c_domicilio, domicilio), telefono = NVL(this.c_telefono,telefono), id_biblioteca = NVL(this.c_id_biblioteca, id_biblioteca);
 	WHERE nro_socio = this.aut_nro_socio
+**MESSAGEBOX("Socio nro: " + this.aut_nro_socio + " borrado")
 	
 RETURN 
 
@@ -184,6 +185,19 @@ this.c_telefono = curBus.telefono
 this.c_id_biblioteca  = curBus.id_biblioteca
 	
 RETURN 
+
+FUNCTION existe
+PARAMETERS p_c_nombre, p_c_apellido
+
+encontrado = .F.
+
+SELECT nro_socio FROM socio;
+	WHERE ((nombre like p_c_nombre) AND (apellido like p_c_apellido));
+	INTO CURSOR curExiste
+	
+IIF(RECCOUNT(curExiste) = 0, encontrado = .F., encontrado = .T.)
+
+RETURN encontrado
 
 ENDDEFINE 
 

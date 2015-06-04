@@ -92,11 +92,11 @@ this.c_id_biblioteca  = curPri.id_biblioteca
 RETURN this.aut_nro_socio
 
 FUNCTION siguiente
-SET STEP ON 
-if(this.aut_nro_socio = (select MAX(nro_socio) from socio))
-	MESSAGEBOX("Último elemento")
-	RETURN 
-ELSE 
+ 
+**if(this.aut_nro_socio = (select MAX(nro_socio) from socio))
+**	MESSAGEBOX("Último elemento")
+**	RETURN 
+**ELSE 
 	SELECT MIN(nro_socio) as siguiente from socio; 
 		where (nro_socio > this.aut_nro_socio);
 		INTO CURSOR curSig
@@ -112,7 +112,7 @@ ELSE
 	this.c_domicilio = curNext.domicilio
 	this.c_telefono = curNext.telefono
 	this.c_id_biblioteca  = curNext.id_biblioteca
-ENDIF 
+**ENDIF 
 RETURN 
 
 FUNCTION anterior
@@ -159,6 +159,7 @@ FUNCTION modificar
 UPDATE socio SET;
 	apellido = NVL(this.c_apellido, apellido), nombre = NVL(this.c_nombre, nombre), email = NVL(this.c_email,email), domicilio = NVL(this.c_domicilio, domicilio), telefono = NVL(this.c_telefono,telefono), id_biblioteca = NVL(this.c_id_biblioteca, id_biblioteca);
 	WHERE nro_socio = this.aut_nro_socio
+**MESSAGEBOX("Socio nro: " + this.aut_nro_socio + " borrado")
 	
 RETURN 
 
