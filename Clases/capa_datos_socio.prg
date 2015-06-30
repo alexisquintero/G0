@@ -15,10 +15,11 @@ INSERT INTO socio (apellido, nombre, email, domicilio, telefono, id_biblioteca);
 	
 RETURN 
 
+endfunc
+
 FUNCTION primero
 
 SELECT MIN(nro_socio) as primero FROM socio;
-	GROUP BY nro_socio;
 	INTO CURSOR cur_min
 	
 SELECT * from socio; 
@@ -34,6 +35,7 @@ this.c_telefono = curPri.telefono
 this.c_id_biblioteca  = curPri.id_biblioteca
 	
 RETURN this.aut_nro_socio
+endfunc
 
 FUNCTION siguiente
  
@@ -59,6 +61,8 @@ FUNCTION siguiente
 **ENDIF 
 RETURN 
 
+endfunc
+
 FUNCTION anterior
 
 SELECT MAX(nro_socio) as anterior from socio; 
@@ -78,6 +82,7 @@ this.c_telefono = curPrev.telefono
 this.c_id_biblioteca  = curPrev.id_biblioteca
 
 RETURN
+endfunc
 
 FUNCTION ultimo
 
@@ -97,6 +102,7 @@ this.c_telefono = curLast.telefono
 this.c_id_biblioteca  = curLast.id_biblioteca
 	
 RETURN this.aut_nro_socio
+endfunc
 
 FUNCTION modificar
 
@@ -106,6 +112,7 @@ UPDATE socio SET;
 **MESSAGEBOX("Socio nro: " + this.aut_nro_socio + " borrado")
 	
 RETURN 
+endfunc
 
 FUNCTION borrar
 
@@ -113,7 +120,8 @@ DELETE FROM socio;
 	WHERE nro_socio = this.aut_nro_socio
 
 RETURN 
-	
+endfunc
+
 FUNCTION buscar
 
 SELECT * FROM socio;
@@ -129,6 +137,7 @@ this.c_telefono = curBus.telefono
 this.c_id_biblioteca  = curBus.id_biblioteca
 	
 RETURN 
+endfunc
 
 FUNCTION existe
 PARAMETERS p_c_nombre, p_c_apellido
@@ -142,6 +151,7 @@ SELECT nro_socio FROM socio;
 IIF(RECCOUNT(curExiste) = 0, encontrado = .F., encontrado = .T.)
 
 RETURN encontrado
+endfunc
 
 ENDDEFINE 
 
