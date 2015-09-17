@@ -1,0 +1,9 @@
+DEFAULT = C
+
+PATH =	\Fox\G0\Clases;
+		\Fox\G0\Data;
+		\Fox\G0\Data\Tables;
+		\Fox\G0\Forms;
+		\Fox\G0\Test;
+		
+DELETED = ON
